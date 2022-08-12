@@ -51,7 +51,8 @@ Usuário:<br>
 	-Número<br>
 	-Complemento<br>
 
-<b>Tecnologías:<b><br>
+<b>Tecnologías:<b>
+	<br>
 	-React<br>
 	-Typescript<br>
 	-Vite<br>
