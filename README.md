@@ -9,7 +9,7 @@ selecionar os produtos desejados e deverão se cadastrar para enviar seus dados 
 junto com seu pedido através do aplicativo whatsapp.
 
 
-REQUISITOS:<br>
+<b>REQUISITOS:</b><br>
 	 A aplicação deve permitir criar novos produtos (CRUD) <br>
 	 A aplicação deve permitir editar os produtos existentes (CRUD)<br>
 	 A aplicação deve permitir excluir produtos (CRUD)<br>
@@ -19,7 +19,7 @@ REQUISITOS:<br>
 	 A aplicação deve permitir excluir usuários (CRUD)<br>
 	 A aplicação deve permitir buscar produtos (CRUD)<br>
 
-REGRAS DE NEGÓCIO:<br>
+<b>REGRAS DE NEGÓCIO:</b><br>
 	- O sistema contará com um sistema de login<br>
 	- Haverá conceito de usuário<br>
 	- Somente quem poderá cadastrar e editar produtos será o admin da aplicação<br>
@@ -28,8 +28,8 @@ REGRAS DE NEGÓCIO:<br>
 	- Ao informar o cep os outros campos de endereço auto-completam.<br>
 
 
-ENTIDADES:<br>
-Produto:<br>
+<b>ENTIDADES:</b><br>
+<b>Produto:</b><br>
 	-ID<br>
 	-Nome<br>
 	-Tipo<br>
