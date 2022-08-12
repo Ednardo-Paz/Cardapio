@@ -10,7 +10,7 @@ junto com seu pedido através do aplicativo whatsapp.
 
 
 REQUISITOS:
-	 A aplicação deve permitir criar novos produtos (CRUD) --
+	 A aplicação deve permitir criar novos produtos (CRUD) <br>
 	 A aplicação deve permitir editar os produtos existentes (CRUD)--
 	 A aplicação deve permitir excluir produtos (CRUD)--
 	 A aplicação deve permotir buscar produtos (CRUD)--
