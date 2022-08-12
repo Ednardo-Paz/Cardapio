@@ -11,14 +11,14 @@ junto com seu pedido através do aplicativo whatsapp.
 
 REQUISITOS:
 	 A aplicação deve permitir criar novos produtos (CRUD) <br>
-	 A aplicação deve permitir editar os produtos existentes (CRUD)--
-	 A aplicação deve permitir excluir produtos (CRUD)--
-	 A aplicação deve permotir buscar produtos (CRUD)--
+	 A aplicação deve permitir editar os produtos existentes (CRUD)<br>
+	 A aplicação deve permitir excluir produtos (CRUD)<br>
+	 A aplicação deve permotir buscar produtos (CRUD)<br><br>
 
-	 A aplicação deve permitir criar novos usuários(CRUD)--
-	 A aplicação deve permitir editar os usuários existentes (CRUD)--
-	 A aplicação deve permitir excluir usuários (CRUD)--
-	 A aplicação deve permitir buscar produtos (CRUD)--
+	 A aplicação deve permitir criar novos usuários(CRUD)<br>
+	 A aplicação deve permitir editar os usuários existentes (CRUD)<br>
+	 A aplicação deve permitir excluir usuários (CRUD)<br>
+	 A aplicação deve permitir buscar produtos (CRUD)<br>
 
 REGRAS DE NEGÓCIO:
 	- O sistema contará com um sistema de login
