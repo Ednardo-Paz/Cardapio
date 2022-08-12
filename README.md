@@ -19,17 +19,17 @@ REQUISITOS:<br>
 	 A aplicação deve permitir excluir usuários (CRUD)<br>
 	 A aplicação deve permitir buscar produtos (CRUD)<br>
 
-REGRAS DE NEGÓCIO:
-	- O sistema contará com um sistema de login
-	- Haverá conceito de usuário
-	- Somente quem poderá cadastrar e editar produtos será o admin da aplicação
-	- Deve ser possível filtrar os produtos
-	- Somente usuários cadastrados poderão enviar seus pedidos, mas todos poderão ver os produtos
-	- Ao informar o cep os outros campos de endereço auto-completam.
+REGRAS DE NEGÓCIO:<br>
+	- O sistema contará com um sistema de login<br>
+	- Haverá conceito de usuário<br>
+	- Somente quem poderá cadastrar e editar produtos será o admin da aplicação<br>
+	- Deve ser possível filtrar os produtos<br>
+	- Somente usuários cadastrados poderão enviar seus pedidos, mas todos poderão ver os produtos<br>
+	- Ao informar o cep os outros campos de endereço auto-completam.<br>
 
 
-ENTIDADES:
-Produto:
+ENTIDADES:<br>
+Produto:<br>
 	-ID
 	-Nome
 	-Tipo
