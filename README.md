@@ -2,7 +2,7 @@
 
 Cardápio Digital
 
-<	<b>Descrição do projeto:</b>
+<b>Descrição do projeto:</b>
 
 O projeto visa desenvolver uma aplicação que exiba para o usuário os produtos com seus respectivos preços. Os usuários poderão 
 selecionar os produtos desejados e deverão se cadastrar para enviar seus dados para o estabelecimento 
