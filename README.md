@@ -40,7 +40,7 @@ Produto:<br>
 	-Foto Atual<br>
 	-Foto Nova<br>
 
-Usuário:<br>
+<b>Usuário:</b><br>
 	-ID<br>
 	-Nome<br>
 	-Email<br>
