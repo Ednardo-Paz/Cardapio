@@ -30,31 +30,31 @@ REGRAS DE NEGÓCIO:<br>
 
 ENTIDADES:<br>
 Produto:<br>
-	-ID
-	-Nome
-	-Tipo
-	-Preço Pequeno
-	-Preço Médio
-	-Preço Grande
-	-Descrição
-	-Foto Atual
-	-Foto Nova
+	-ID<br>
+	-Nome<br>
+	-Tipo<br>
+	-Preço Pequeno<br>
+	-Preço Médio<br>
+	-Preço Grande<br>
+	-Descrição<br>
+	-Foto Atual<br>
+	-Foto Nova<br>
 
-Usuário:
-	-ID
-	-Nome
-	-Email
-	-Senha
-	-Telefone
-	-CEP
-	-Rua
-	-Número
-	-Complemento
+Usuário:<br>
+	-ID<br>
+	-Nome<br>
+	-Email<br>
+	-Senha<br>
+	-Telefone<br>
+	-CEP<br>
+	-Rua<br>
+	-Número<br>
+	-Complemento<br>
 
-Tecnologías:
-	-React
-	-Typescript
-	-Vite
-	-Bootstrap
-	-Firebase
+Tecnologías:<br>
+	-React<br>
+	-Typescript<br>
+	-Vite<br>
+	-Bootstrap<br>
+	-Firebase<br>
 	
