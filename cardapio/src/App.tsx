@@ -1,30 +1,24 @@
-import { useEffect, useState } from 'react';
 import './App.css'
-import ColecaoProduto from './backend/db/ColecaoProduto'
-import Produto from './core/produto/Produto';
-import ProdutoRepositorio from './core/produto/ProdutoRepositorio'
+import Botao from './components/Botao';
+import Formulario from './components/Formulario';
+import TabelaProdutos from './components/TabelaProdutos';
+import useProdutos from './hooks/useProdutos';
 
 function App() {
-  const [produtos, setProdutos] = useState<Produto[]>([]);
-
-  const repo: ProdutoRepositorio = new ColecaoProduto();
-
-
-  useEffect(() => {
-    repo.obterTodos().then(produtos => {
-      setProdutos(produtos)
-    })
-  }, [])
-
-  console.log(produtos.map(produto => produto.nome));
+  const { carregando, visivel, produtoNovo, produtoExcluido, produtoSelecionado, produtos, salvarProduto, produto, setVisivel } = useProdutos();
 
   return (
     <div>
-      <ul>
-        {produtos.map(produto => (
-          <li key={produto.id}>{produto.tipo}</li>
-        ))}
-      </ul>
+      {carregando ? <h1> Carregando </h1> : (
+        <>
+          {visivel === "tabela" ? (
+            <>
+              <Botao onClick={produtoNovo}>Novo Produto</Botao>
+              <TabelaProdutos produtoExcluido={produtoExcluido} produtoSelecionado={produtoSelecionado} produtos={produtos} />
+            </>
+          ) : <Formulario produtoMudou={salvarProduto} produto={produto} cancelado={() => setVisivel("tabela")} />}
+        </>
+      )}
     </div>
   )
 }

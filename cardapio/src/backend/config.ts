@@ -3,9 +3,9 @@ import 'firebase/firestore'
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.API_KEY,
-  authDomain: import.meta.env.AUTH_DOMAIN,
-  projectId: "cantinhodbolos-a1ee2",
+  apiKey: "AIzaSyBTXAxQ2KxOptPlpcDtHYdwQhjO59FPJVg",
+  authDomain: "next-crud-1622c.firebaseapp.com",
+  projectId: "next-crud-1622c",
 };
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
