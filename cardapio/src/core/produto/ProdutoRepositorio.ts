@@ -5,5 +5,4 @@ export default interface ProdutoRepositorio {
   excluir(Produto: Produto): Promise<void>
   obterTodos(): Promise<Produto[]>
   getAllStorage(): Promise<Produto[]>
-  signup(email: string, password: string): any
 }

@@ -1,17 +1,17 @@
 export default class Usuario {
-  #id?: string
+  #senha?: string
   #email?: string
 
-  constructor(id: string, email: string) {
-    this.#id = id
+  constructor(senha: string, email: string) {
+    this.#senha = senha
     this.#email = email
   }
 
   static vazio() {
     return new Usuario("", "")
   }
-  get id() {
-    return this.#id
+  get senha() {
+    return this.#senha
   }
   get email() {
     return this.#email

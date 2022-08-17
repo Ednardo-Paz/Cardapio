@@ -43,15 +43,6 @@ export default class ColecaoProduto implements ProdutoRepositorio {
 
   #colecaoProduto = collection(dataBase, 'produtos').withConverter(this.#conversor)
 
-  signup(email: string, password: string) {
-    try {
-      createUserWithEmailAndPassword(auth, email, password)
-    } catch {
-      alert("Ërro")
-
-    }
-  }
-
   async getAllStorage() {
     let list: Produto[] = [];
 

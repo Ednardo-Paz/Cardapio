@@ -8,7 +8,7 @@ export default class colecaoUsuario implements UsuarioRepositorio {
     try {
       await signInWithEmailAndPassword(auth, email, password)
     } catch (error) {
-      console.log("Algo errado...")
+      console.log(error)
     }
   }
   async register(email: string, password: string) {
