@@ -3,7 +3,7 @@ import UsuarioRepositorio from "../../core/usuario/UsuarioRepositorio";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"
 import { auth } from "../config";
 
-export default class colecaoUsuario implements UsuarioRepositorio {
+export default class FirebaseService implements UsuarioRepositorio {
   async login(email: string, password: string) {
     try {
       await signInWithEmailAndPassword(auth, email, password)

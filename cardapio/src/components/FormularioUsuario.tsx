@@ -6,6 +6,7 @@ import UsuarioRepositorio from '../core/usuario/UsuarioRepositorio';
 import Botao from './Botao'
 import Input from './Input';
 import { auth } from ".././backend/config";
+import FirebaseService from '../backend/db/FirebaseService';
 
 
 const FormularioUsuario = () => {
@@ -15,7 +16,7 @@ const FormularioUsuario = () => {
   const [LoginPassword, setLoginPassword] = useState("");
 
 
-  const user: UsuarioRepositorio = new colecaoUsuario();
+  const user: UsuarioRepositorio = new FirebaseService();
 
 
   function handleRegister() {
