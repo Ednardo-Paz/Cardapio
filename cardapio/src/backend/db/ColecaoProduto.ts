@@ -1,4 +1,4 @@
-import { dataBase } from '../config'
+import { dataBase, auth } from '../config'
 import firestore, {
   addDoc,
   collection,
@@ -10,8 +10,15 @@ import firestore, {
 } from 'firebase/firestore'
 import Produto from '../../core/produto/Produto'
 import ProdutoRepositorio from '../../core/produto/ProdutoRepositorio'
-
+import { storage } from '../config'
+import { ref, listAll, getDownloadURL } from 'firebase/storage'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 export default class ColecaoProduto implements ProdutoRepositorio {
+
+
+  getStorage(): Promise<any> {
+    throw new Error('Method not implemented.')
+  }
 
   #conversor = {
     toFirestore: (produto: Produto) => {
@@ -22,6 +29,7 @@ export default class ColecaoProduto implements ProdutoRepositorio {
         precoP: produto.precoP,
         precoM: produto.precoM,
         precoG: produto.precoG,
+        foto: produto.foto
       }
     },
     fromFirestore: (
@@ -29,11 +37,42 @@ export default class ColecaoProduto implements ProdutoRepositorio {
       options: firestore.SnapshotOptions,
     ) => {
       const dados = snapshot.data(options)
-      return new Produto(dados.nome, dados.tipo, dados.precoP, dados.precoM, dados.precoG, dados.descricao, snapshot.id)
+      return new Produto(dados.nome, dados.tipo, dados.precoP, dados.precoM, dados.precoG, dados.descricao, dados.foto, snapshot.id)
     },
   }
 
   #colecaoProduto = collection(dataBase, 'produtos').withConverter(this.#conversor)
+
+  signup(email: string, password: string) {
+    try {
+      createUserWithEmailAndPassword(auth, email, password)
+    } catch {
+      alert("Ërro")
+
+    }
+  }
+
+  async getAllStorage() {
+    let list: Produto[] = [];
+
+    const imagensPasta = ref(storage, "img");
+    const photoList = await listAll(imagensPasta);
+
+    for (let i in photoList.items) {
+      let fotoUrl = await getDownloadURL(photoList.items[i]);
+      list.push({
+        foto: fotoUrl,
+        id: undefined,
+        nome: undefined,
+        tipo: undefined,
+        precoP: undefined,
+        precoM: undefined,
+        precoG: undefined,
+        descricao: undefined
+      })
+    }
+    return list;
+  }
 
   async salvar(produto: Produto): Promise<Produto | any> {
     if (produto?.id) {

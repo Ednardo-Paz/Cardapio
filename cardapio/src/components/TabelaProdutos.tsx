@@ -18,11 +18,13 @@ const TabelaProdutos = (props: TabelaProdutoProps) => {
         <th className="text-left p-4">Nome</th>
         <th className="text-left p-4">Tipo</th>
         {exibirAcoes ? <th className=" p-4">Ações</th> : false}
+        <th className="text-left p-4">Fotos</th>
       </tr>
     )
   }
   function renderizarDados() {
     return props.produtos?.map((produto, i) => (
+
       <tr key={produto.id}
         className={`${i % 2 === 0 ? 'bg-purple-200' : 'bg-purple-100'}`}>
         <td className="text-left p-4">{produto.id}</td>
@@ -30,8 +32,10 @@ const TabelaProdutos = (props: TabelaProdutoProps) => {
         <td className="text-left p-4">{produto.tipo}</td>
         {exibirAcoes ? renderizarAcoes(produto) : false}
       </tr>
+
     ))
   }
+
 
   function renderizarAcoes(produto: Produto) {
     return (
@@ -51,18 +55,20 @@ const TabelaProdutos = (props: TabelaProdutoProps) => {
   }
 
   return (
-    <table className="w-full rounded-xl overflow-hidden">
-      <thead className={`
+    <>
+      <table className="w-full rounded-xl overflow-hidden">
+        <thead className={`
       text-gray-100
       bg-gradient-to-r from-purple-500 to-purple-800
     `}>
-        {renderizarCabecalho()}
-      </thead>
+          {renderizarCabecalho()}
+        </thead>
 
-      <tbody>
-        {renderizarDados()}
-      </tbody>
-    </table>
+        <tbody>
+          {renderizarDados()}
+        </tbody>
+      </table>
+    </>
   )
 }
 

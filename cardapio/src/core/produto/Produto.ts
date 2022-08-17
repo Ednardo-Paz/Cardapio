@@ -6,19 +6,21 @@ export default class Produto {
   #precoM?: string
   #precoG?: string
   #descricao?: string
+  #foto?: string
 
-  constructor(nome: string, tipo: string, precoP: string, precoM: string, precoG: string, descricao: string, id: string | null) {
+  constructor(nome: string, tipo: string, precoP: string, precoM: string, precoG: string, descricao: string, foto: string, id: string | null) {
     this.#nome = nome
     this.#tipo = tipo
     this.#precoP = precoP
     this.#precoM = precoM
     this.#precoG = precoG
     this.#descricao = descricao
+    this.#foto = foto
     this.#id = id
   }
 
   static vazio() {
-    return new Produto("", "", "", "", "", "", null)
+    return new Produto("", "", "", "", "", "", "", null)
   }
 
   get id() {
@@ -38,6 +40,9 @@ export default class Produto {
   }
   get precoG() {
     return this.#precoG
+  }
+  get foto() {
+    return this.#foto
   }
   get descricao() {
     return this.#descricao

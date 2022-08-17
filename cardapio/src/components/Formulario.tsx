@@ -15,6 +15,7 @@ const Formulario = (props: FormularioProps) => {
   const [precoP, setPrecoP] = useState(props.produto?.tipo ?? "")
   const [precoM, setPrecoM] = useState(props.produto?.tipo ?? "")
   const [precoG, setPrecoG] = useState(props.produto?.tipo ?? "")
+  const [fotoAtual, setFotoAtual] = useState(props.produto?.foto ?? "")
   const [descricao, setDescricao] = useState(props.produto?.tipo ?? "")
   return (
     <div>
@@ -27,7 +28,8 @@ const Formulario = (props: FormularioProps) => {
       <Input texto="precoM" valor={precoM} onChange={setPrecoM} />
       <Input texto="precoG" valor={precoG} onChange={setPrecoG} />
       <Input texto="descricao" valor={descricao} onChange={setDescricao} />
-      <Botao onClick={() => props.produtoMudou?.(new Produto(nome, tipo, precoP, precoM, precoG, descricao, id as string))}>{id ? "Alterar" : "Salvar"}</Botao>
+
+      <Botao onClick={() => props.produtoMudou?.(new Produto(nome, tipo, precoP, precoM, precoG, descricao, fotoAtual, id as string))}>{id ? "Alterar" : "Salvar"}</Botao>
       <Botao onClick={props.cancelado}>Cancelar</Botao>
     </div>
   )

@@ -1,6 +1,7 @@
 import './App.css'
 import Botao from './components/Botao';
 import Formulario from './components/Formulario';
+import FormularioUsuario from './components/FormularioUsuario';
 import TabelaProdutos from './components/TabelaProdutos';
 import useProdutos from './hooks/useProdutos';
 
@@ -16,7 +17,12 @@ function App() {
               <Botao onClick={produtoNovo}>Novo Produto</Botao>
               <TabelaProdutos produtoExcluido={produtoExcluido} produtoSelecionado={produtoSelecionado} produtos={produtos} />
             </>
-          ) : <Formulario produtoMudou={salvarProduto} produto={produto} cancelado={() => setVisivel("tabela")} />}
+          ) :
+            <>
+              <FormularioUsuario />
+              <Formulario produtoMudou={salvarProduto} produto={produto} cancelado={() => setVisivel("tabela")} />
+            </>
+          }
         </>
       )}
     </div>

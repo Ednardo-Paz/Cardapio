@@ -8,9 +8,16 @@ export default function useProdutos() {
   const [produto, setProduto] = useState<Produto>(Produto.vazio())
   const [visivel, setVisivel] = useState<"form" | "tabela">("tabela");
   const [carregando, setCarregando] = useState(false);
+  const [fotos, setFotos] = useState<Produto[]>([])
 
   const repo: ProdutoRepositorio = new ColecaoProduto();
 
+
+  useEffect(() => {
+    repo.getAllStorage().then(fotos => {
+      setFotos(fotos);
+    })
+  }, [])
 
   function obterTodos() {
     setCarregando(true)
