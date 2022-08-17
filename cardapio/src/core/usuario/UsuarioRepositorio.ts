@@ -1,5 +1,4 @@
 import { Auth } from "firebase/auth";
-import Usuario from "./Usuario";
 
 export default interface UsuarioRepositorio {
   register(email: string, password: string): Promise<any>

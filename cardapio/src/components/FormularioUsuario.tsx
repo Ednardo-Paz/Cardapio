@@ -1,35 +1,11 @@
-import React, { useState } from 'react'
-import ColecaoProduto from '../backend/db/ColecaoProduto';
-import colecaoUsuario from '../backend/db/FirebaseService';
-import ProdutoRepositorio from '../core/produto/ProdutoRepositorio';
-import UsuarioRepositorio from '../core/usuario/UsuarioRepositorio';
 import Botao from './Botao'
 import Input from './Input';
-import { auth } from ".././backend/config";
-import FirebaseService from '../backend/db/FirebaseService';
+import { useUsuarioLogin } from '../hooks/useUsuarioLogin';
 
 
 const FormularioUsuario = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [LoginPassword, setLoginPassword] = useState("");
 
-
-  const user: UsuarioRepositorio = new FirebaseService();
-
-
-  function handleRegister() {
-    user.register(email, password)
-  }
-
-  function handleLogin() {
-    user.login(loginEmail, LoginPassword)
-  }
-
-  function handleLogout() {
-    user.logout()
-  }
+  const { email, handleLogin, handleRegister, setEmail, setPassword, password, loginEmail, setLoginEmail, setLoginPassword, LoginPassword, user, handleLogout } = useUsuarioLogin();
 
   return (
     <>

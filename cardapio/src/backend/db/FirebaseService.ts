@@ -1,4 +1,3 @@
-import Usuario from "../../core/usuario/Usuario";
 import UsuarioRepositorio from "../../core/usuario/UsuarioRepositorio";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"
 import { auth } from "../config";
