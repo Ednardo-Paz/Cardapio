@@ -2,7 +2,7 @@ import { getApp, initializeApp, getApps } from 'firebase/app';
 import 'firebase/firestore'
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from "firebase/storage"
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import { getAuth } from "firebase/auth"
 
 const firebaseConfig = {
   apiKey: "AIzaSyBTXAxQ2KxOptPlpcDtHYdwQhjO59FPJVg",
@@ -16,7 +16,7 @@ const firebaseConfig = {
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
 const dataBase = getFirestore(app)
 const firebaseApp = getApp();
-const storage = getStorage(firebaseApp, "gs://next-crud-1622c.appspot.com");
+const storage = getStorage(app);
 const auth = getAuth(app);
 export { dataBase, storage, auth }
 

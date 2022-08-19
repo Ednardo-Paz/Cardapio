@@ -5,8 +5,10 @@ import FormularioUsuario from './components/FormularioUsuario';
 import TabelaProdutos from './components/TabelaProdutos';
 import useProdutos from './hooks/useProdutos';
 
+
+
 function App() {
-  const { carregando, visivel, produtoNovo, produtoExcluido, produtoSelecionado, produtos, salvarProduto, produto, setVisivel } = useProdutos();
+  const { carregando, visivel, produtoNovo, produtoExcluido, produtoSelecionado, produtos, salvarProduto, produto, setVisivel, changeHandler, error, file } = useProdutos();
 
   return (
     <div>
@@ -20,7 +22,8 @@ function App() {
           ) :
             <>
               <FormularioUsuario />
-              <Formulario produtoMudou={salvarProduto} produto={produto} cancelado={() => setVisivel("tabela")} />
+              <Formulario file={file} onChange={changeHandler} produtoMudou={salvarProduto} produto={produto} cancelado={() => setVisivel("tabela")} />
+              {error && <div>{error}</div>}
             </>
           }
         </>

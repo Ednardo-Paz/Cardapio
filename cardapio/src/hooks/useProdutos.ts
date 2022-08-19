@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import ColecaoProduto from "../backend/db/ColecaoProduto";
+import FirebaseService from "../backend/db/FirebaseService";
 import Produto from "../core/produto/Produto";
 import ProdutoRepositorio from "../core/produto/ProdutoRepositorio";
+import UsuarioRepositorio from "../core/usuario/UsuarioRepositorio";
 
 export default function useProdutos() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -9,8 +11,12 @@ export default function useProdutos() {
   const [visivel, setVisivel] = useState<"form" | "tabela">("tabela");
   const [carregando, setCarregando] = useState(false);
   const [fotos, setFotos] = useState<Produto[]>([])
+  const [file, setFile] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const types = ["image/png", "image/jpeg"];
 
   const repo: ProdutoRepositorio = new ColecaoProduto();
+
 
 
   useEffect(() => {
@@ -32,7 +38,10 @@ export default function useProdutos() {
   }, [])
 
   function produtoSelecionado(produto: Produto) {
+    console.log(produto);
+
     setProduto(produto);
+    setFile(file)
     setVisivel('form')
   }
   function produtoNovo() {
@@ -49,7 +58,20 @@ export default function useProdutos() {
     await repo.salvar(produto)
     obterTodos()
     setVisivel('tabela')
+    await repo.getStorage(file)
   }
+
+  function changeHandler(e: any) {
+    let selected = e.target.files[0];
+    if (selected && types.includes(selected.type)) {
+      setFile(selected)
+      setError("")
+    } else {
+      setFile("")
+      setError('Usar somente imagens com os arquivos (.png ou .jpej)')
+    }
+  }
+
   return {
     produtoSelecionado,
     produtoExcluido,
@@ -59,7 +81,12 @@ export default function useProdutos() {
     produto,
     visivel,
     carregando,
-    setVisivel
+    setVisivel,
+    changeHandler,
+    file,
+    setFile,
+    error,
+    setError,
   }
 
 }

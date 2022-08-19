@@ -11,14 +11,10 @@ import firestore, {
 import Produto from '../../core/produto/Produto'
 import ProdutoRepositorio from '../../core/produto/ProdutoRepositorio'
 import { storage } from '../config'
-import { ref, listAll, getDownloadURL } from 'firebase/storage'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { ref, listAll, getDownloadURL, uploadBytes } from 'firebase/storage'
+import { v4 } from 'uuid'
 export default class ColecaoProduto implements ProdutoRepositorio {
 
-
-  getStorage(): Promise<any> {
-    throw new Error('Method not implemented.')
-  }
 
   #conversor = {
     toFirestore: (produto: Produto) => {
@@ -29,7 +25,9 @@ export default class ColecaoProduto implements ProdutoRepositorio {
         precoP: produto.precoP,
         precoM: produto.precoM,
         precoG: produto.precoG,
-        foto: produto.foto
+        foto: produto.foto,
+        usuario: produto.usuario,
+        criacao: produto.criacao
       }
     },
     fromFirestore: (
@@ -37,7 +35,7 @@ export default class ColecaoProduto implements ProdutoRepositorio {
       options: firestore.SnapshotOptions,
     ) => {
       const dados = snapshot.data(options)
-      return new Produto(dados.nome, dados.tipo, dados.precoP, dados.precoM, dados.precoG, dados.descricao, dados.foto, snapshot.id)
+      return new Produto(dados.nome, dados.tipo, dados.precoP, dados.precoM, dados.precoG, dados.descricao, dados.foto, dados.usuario, dados.criacao, snapshot.id)
     },
   }
 
@@ -59,7 +57,9 @@ export default class ColecaoProduto implements ProdutoRepositorio {
         precoP: undefined,
         precoM: undefined,
         precoG: undefined,
-        descricao: undefined
+        descricao: undefined,
+        usuario: undefined,
+        criacao: undefined,
       })
     }
     return list;
@@ -92,4 +92,14 @@ export default class ColecaoProduto implements ProdutoRepositorio {
     const produtosList = produtosSnapshot.docs.map((doc) => doc.data()) ?? []
     return produtosList
   }
+
+  async getStorage(file: any) {
+    if (file) {
+      const imagensRef = ref(storage, `imagens/${file.name}`);
+      await uploadBytes(imagensRef, file).then(async () => {
+        alert("File Uploaded")
+      })
+    }
+  }
+
 }
