@@ -5,6 +5,6 @@ export default interface ProdutoRepositorio {
   excluir(Produto: Produto): Promise<void>
   obterTodos(): Promise<Produto[]>
   getAllStorage(): Promise<Produto[]>
-  getStorage(file: any): any
+  setStorage(file: any): any
 
 }

@@ -58,7 +58,7 @@ export default function useProdutos() {
     await repo.salvar(produto)
     obterTodos()
     setVisivel('tabela')
-    await repo.getStorage(file)
+    await repo.setStorage(file)
   }
 
   function changeHandler(e: any) {
