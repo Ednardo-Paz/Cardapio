@@ -22,7 +22,7 @@ function App() {
           ) :
             <>
               <FormularioUsuario />
-              <Formulario file={file} onChange={changeHandler} produtoMudou={salvarProduto} produto={produto} cancelado={() => setVisivel("tabela")} />
+              <Formulario file={file} onChange={changeHandler} onProdutoMudou={salvarProduto} produto={produto} cancelado={() => setVisivel("tabela")} />
               {error && <div>{error}</div>}
             </>
           }

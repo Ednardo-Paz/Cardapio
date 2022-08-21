@@ -11,7 +11,7 @@ import firestore, {
 import Produto from '../../core/produto/Produto'
 import ProdutoRepositorio from '../../core/produto/ProdutoRepositorio'
 import { storage } from '../config'
-import { ref, listAll, getDownloadURL, uploadBytes } from 'firebase/storage'
+import { ref, listAll, getDownloadURL, uploadBytes, uploadBytesResumable } from 'firebase/storage'
 import { v4 } from 'uuid'
 export default class ColecaoProduto implements ProdutoRepositorio {
   #conversor = {
@@ -91,13 +91,9 @@ export default class ColecaoProduto implements ProdutoRepositorio {
     return produtosList
   }
 
-  async setStorage(file: any) {
-    if (file) {
-      const imagensRef = ref(storage, `imagens/${file.name}`);
-      await uploadBytes(imagensRef, file).then(async () => {
-        alert("File Uploaded")
-      })
-    }
+  setStorage(file: File) {
+    const imagensRef = ref(storage, `imagens/` + v4());
+    return uploadBytesResumable(imagensRef, file)
   }
 
 }

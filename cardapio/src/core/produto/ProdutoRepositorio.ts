@@ -6,5 +6,4 @@ export default interface ProdutoRepositorio {
   obterTodos(): Promise<Produto[]>
   getAllStorage(): Promise<Produto[]>
   setStorage(file: any): any
-
 }

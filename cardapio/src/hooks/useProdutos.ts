@@ -3,7 +3,7 @@ import ColecaoProduto from "../backend/db/ColecaoProduto";
 import FirebaseService from "../backend/db/FirebaseService";
 import Produto from "../core/produto/Produto";
 import ProdutoRepositorio from "../core/produto/ProdutoRepositorio";
-import UsuarioRepositorio from "../core/usuario/UsuarioRepositorio";
+import { getDownloadURL } from "firebase/storage";
 
 export default function useProdutos() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -58,8 +58,27 @@ export default function useProdutos() {
     await repo.salvar(produto)
     obterTodos()
     setVisivel('tabela')
-    await repo.setStorage(file)
+    await repo.setStorage(file).then((res: any) => {
+      alert("Foi")
+    })
+    // await getDownloadURL(await repo.setStorage(file).snapshot.ref).then((url) => {
+    //   console.log(url);
+    // })
   }
+  // console.log(repo.setStorage(file).on(
+  //   "state_changed",
+  //   (snapshot: any) => {
+  //     console.log(getDownloadURL(repo.setStorage(file).snapshot.ref).then((res) => {
+  //       console.log(res);
+
+  //     }));
+
+  //   },
+  //   () => {
+
+  //   }
+  // ));
+
 
   function changeHandler(e: any) {
     let selected = e.target.files[0];
